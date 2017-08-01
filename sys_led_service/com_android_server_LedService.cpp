@@ -7,16 +7,24 @@
 
 #include<iostream>
 #include "jni.h"
+#include "JNIHelp.h"
 #include <utils/Log.h>
 #include <stdio.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+
+#include <sys/ioctl.h>
 #include "android_runtime/AndroidRuntime.h"
 
 #include <utils/misc.h>
-#include <hardware_legacy/vibrator.h>
+#include <hardware/hardware.h>
 #include "led.h"
 
 namespace android
 {
+
+static int fd;
 
 JNIEXPORT void JNICALL led_open(JNIEnv * env, jclass cls)
 {

@@ -487,7 +487,7 @@ public final class SystemServer {
 
             /* 向servicemanger添加一个service */
             Slog.i(TAG, "Led Service");
-            led = new LedService(context);
+            led = new LedService();
             ServiceManager.addService("led", led);
 
             Slog.i(TAG, "Consumer IR Service");
